@@ -14,7 +14,6 @@ dependencies:
       url: https://github.com/LeonardoJRibeiro/multi_select_form_field
 ```
 
-
 ## Todo: 
 -  [ ] write documentation
 -  [ ] tests

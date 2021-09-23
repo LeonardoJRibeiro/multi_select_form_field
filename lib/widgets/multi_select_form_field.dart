@@ -75,9 +75,7 @@ class MultiSelect<T> extends StatefulWidget {
   final List<T> itens;
   final Function(List<T> itens)? onChanged;
   final FormFieldState<T> field;
-
   final String? textConfirm;
-
   final String? title;
 
   @override
@@ -123,6 +121,8 @@ class _MultiSelectState<T> extends State<MultiSelect<T>> {
             field: widget.field,
             itemTileBuilder: widget.itemTileBuilder,
             onChanged: widget.onChanged,
+            title: widget.title,
+            textConfirm: widget.textConfirm,
           ),
         );
       },

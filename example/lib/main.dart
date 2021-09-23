@@ -34,50 +34,56 @@ class _ExampleState extends State<Example> {
       ),
       home: Scaffold(
         body: SafeArea(
-          child: Form(
-            key: formKey,
-            child: Column(
-              children: [
-                MultiSelectFormField<ColorModel>(
-                  title: 'Select colors',
-                  controller: colorsController,
-                  itemSelectedBuilder: (item, onDelete) => Chip(
-                    label: Text(item.name),
-                    onDeleted: onDelete,
-                    backgroundColor: item.color,
+          child: Center(
+            child: Form(
+              key: formKey,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  MultiSelectFormField<ColorModel>(
+                    title: 'Select colors',
+                    controller: colorsController,
+                    itemSelectedBuilder: (item, onDelete) => Chip(
+                      label: Text(item.name),
+                      onDeleted: onDelete,
+                      backgroundColor: item.color,
+                    ),
+                    itens: data,
+                    itemTileBuilder: (item, selected, onChange) {
+                      return Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: SwitchListTile(
+                          title: Text(item.name),
+                          tileColor: item.color,
+                          value: selected,
+                          onChanged: onChange,
+                        ),
+                      );
+                    },
+                    validator: (itens) {
+                      if (itens.isEmpty) {
+                        return 'At least one item is required';
+                      }
+                    },
                   ),
-                  itens: data,
-                  itemTileBuilder: (item, selected, onChange) {
-                    return Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: SwitchListTile(
-                        title: Text(item.name),
-                        tileColor: item.color,
-                        value: selected,
-                        onChanged: onChange,
-                      ),
-                    );
-                  },
-                  validator: (itens) {
-                    if (itens.isEmpty) {
-                      return 'At least one item is required';
-                    }
-                  },
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ValueListenableBuilder<List<ColorModel>>(
-                    valueListenable: colorsController,
-                    builder: (context, value, child) => Text(''),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ValueListenableBuilder<List<ColorModel>>(
+                      valueListenable: colorsController,
+                      builder: (context, colorsSelected, child) => Text(
+                          'Colors selected: ${[
+                        for (final v in colorsSelected) v.name
+                      ]}'),
+                    ),
                   ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    formKey.currentState?.validate();
-                  },
-                  child: const Text('Validate'),
-                ),
-              ],
+                  TextButton(
+                    onPressed: () {
+                      formKey.currentState?.validate();
+                    },
+                    child: const Text('Validate'),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
