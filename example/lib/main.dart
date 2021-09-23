@@ -41,7 +41,6 @@ class _ExampleState extends State<Example> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   MultiSelectFormField<ColorModel>(
-                    title: 'Select colors',
                     controller: colorsController,
                     itemSelectedBuilder: (item, onDelete) => Chip(
                       label: Text(item.name),
