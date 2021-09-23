@@ -1,7 +1,7 @@
 library multi_select_form_field;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+import 'package:flutter/material.dart';
+
+part 'controllers/multi_select_controller.dart';
+part 'widgets/multi_select_form_field.dart';
+part 'widgets/multi_select_dialog.dart';

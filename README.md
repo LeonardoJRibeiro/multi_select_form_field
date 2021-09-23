@@ -1,14 +1,20 @@
-# multi_select_form_field
+# multi_select_form_field 
+Date and Time picker that uses Futters FormField and Decoration.
 
-Multi Select that uses Flutter's Form Field and Decoration
+## Status
 
-## Getting Started
+🚧 In Construction 🚧
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+## Usage
+add a line like this to your package's pubspec.yaml (and run an implicit flutter pub get)
+```yaml
+dependencies:
+  date_time_picker_form_field: 
+    git:
+      url: https://github.com/LeonardoJRibeiro/multi_select_form_field
+```
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+
+## Todo: 
+-  [ ] write documentation
+-  [ ] tests
