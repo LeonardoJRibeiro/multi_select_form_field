@@ -1,3 +1,3 @@
-## 0.0.1
+## 0.0.1 2023-09-19
+* initial publish
 
-* TODO: Describe initial release.

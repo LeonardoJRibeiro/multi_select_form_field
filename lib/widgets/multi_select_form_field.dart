@@ -21,6 +21,7 @@ class MultiSelectFormField<T> extends FormField<T> {
     Function(List<T> itens)? onChanged,
     String? textConfirm,
     String? title,
+    List<T>? initialValue,
   }) : super(
           key: key,
           validator: (_) => validator?.call(controller.value),
@@ -40,7 +41,11 @@ class MultiSelectFormField<T> extends FormField<T> {
               textConfirm: textConfirm,
             );
           },
-        );
+        ) {
+    if (initialValue != null) {
+      controller.value = initialValue;
+    }
+  }
 }
 
 class MultiSelect<T> extends StatefulWidget {
